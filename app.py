@@ -117,9 +117,7 @@ div[data-testid="stAlert"] {{
 
 @st.cache_data
 def load_data():
-    path = kagglehub.dataset_download("aldinwhyudii/student-depression-and-lifestyle-100k-data")
-    csv_file = os.path.join(path, "student_lifestyle_100k.csv")
-    return pd.read_csv(csv_file)
+    return pd.read_csv("data/student_lifestyle_100k.csv")
 
 
 df = load_data()

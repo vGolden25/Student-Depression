@@ -1,7 +1,6 @@
 streamlit
-kagglehub
 pandas
 numpy
 scikit-learn
-streamlit
-kagglesdk
+matplotlib
+seaborn
