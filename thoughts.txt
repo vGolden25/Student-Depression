@@ -1,0 +1,66 @@
+this becouse i can understand and see the data 
+No missing value 
+print(df.isnull().sum().sum())
+print(df.head())
+print(df['Department'])
+print(df['Gender'])
+print(df['Depression'])
+for d in df['Department'].unique():
+        print(d)
+print(df['Stress_Level'].unique())
+print(df['Depression'].unique())
+print(df['CGPA'].max())
+print(df.loc[df['CGPA'].idxmax()])
+print(df["Sleep_Duration"].unique())
+high = df[df["Study_Hours"] > 10]
+low = df[df["Study_Hours"] <= 10]
+print("High study depression rate:", high["Depression"].mean())
+print("Low study depression rate:", low["Depression"].mean())
+print("High study stress:", high["Stress_Level"].mean())
+print("Low study stress:", low["Stress_Level"].mean())
+print(df.groupby("Study_Hours")["Stress_Level"].mean())
+print(df.groupby("Study_Hours")["Depression"].mean())
+print(df.groupby("Study_Hours")["Stress_Level"].mean().sort_index())
+print(df.groupby("Study_Hours")["Depression"].mean().sort_index())
+print(df.groupby("Stress_Level")["Depression"].mean())
+print(df["Stress_Level"].value_counts().sort_index())
+
+plt.scatter(df["Study_Hours"], df["Stress_Level"])
+plt.xlabel("Study Hours")
+plt.ylabel("Stress Level")
+plt.show()
+plt.scatter(df["Study_Hours"], df["Depression"])
+plt.xlabel("Study Hours")
+plt.ylabel("Stress Level")
+plt.show()
+
+# corr = df.corr(numeric_only=True)
+# print(corr["Depression"].sort_values(ascending=False))
+# print(pd.crosstab(df["Stress_Level"], df["Depression"]))
+# print(df.groupby('Depression')['CGPA'].mean())
+# print(df.groupby('Depression')['Stress_Level'].mean())
+# print(df.groupby("Depression")["Sleep_Duration"].mean())
+# print(df.groupby('Depression')['Study_Hours'].mean())
+# print(df.groupby("Depression")["Physical_Activity"].mean())
+# plt.figure(figsize=(8,5))
+# df.groupby("Stress_Level")["Depression"].mean().plot(marker="o")
+# plt.ylabel("Depression Rate")
+# plt.xlabel("Stress Level")
+# plt.grid(True)
+# plt.show()
+
+
+
+I FOUND that the hour is not clear like there is student with 3.60 (3H:36min) but is i know the machine work will with decimal values
+what i think now after seeing the data is 
+Students who study more than 10 hours tend to have higher stress levels and are more likely to have depression
+After many time try to see and coumpire the Study hour, strees and depreasion i fount that not all the student with high study hour have strees and lead to deprtion 
+Students with stress levels between 2 and 6 have a relatively stable depression rate of around 9–10%. 
+The depression rate increases slightly at stress level 7 (12%) and rises sharply at stress levels 8 and 9 (around 42%).
+Although all four students with stress level 10 have depression, this result is based on a very small sample and should be interpreted cautiously.
+
+
+Day2 feedback
+I Fpund out the imbalanced data is hurting my model and the predect in defult setting for model make it poor accuracy and miss alot 
+i will try to add New Model which is XGboost and see how it goes 
+
