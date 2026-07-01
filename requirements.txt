@@ -3,3 +3,5 @@ kagglehub
 pandas
 numpy
 scikit-learn
+streamlit
+kagglesdk
